@@ -56,4 +56,5 @@ class ConsoleReader(console: Console[IO]) extends Reader[IO]:
 
 object ConsoleReader:
   val Separator: String   = " "
-  val UserMessage: String = "Please enter a line of space separated integers. Press ENTER to finish"
+  val UserMessage: String =
+    "Please enter a line of space separated integers. Submit empty line to finish input."
