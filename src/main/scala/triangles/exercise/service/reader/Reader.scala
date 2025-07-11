@@ -1,4 +1,4 @@
-package triangles.exercise.service
+package triangles.exercise.service.reader
 
 trait Reader[F[_]]:
 

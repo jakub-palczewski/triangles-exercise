@@ -2,6 +2,7 @@ package triangles.exercise.service
 
 import munit.FunSuite
 import triangles.exercise.model.error.EmptyTriangleException
+import triangles.exercise.service.factory.TriangleFactory
 
 class TriangleFactoryTest extends FunSuite {
   test("fromRows should create Triangle for non-empty input") {

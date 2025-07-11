@@ -1,4 +1,4 @@
-package triangles.exercise.service
+package triangles.exercise.service.factory
 
 import triangles.exercise.model.Triangle
 import triangles.exercise.model.error.EmptyTriangleException

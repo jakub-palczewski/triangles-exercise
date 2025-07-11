@@ -3,6 +3,7 @@ package triangles.exercise.service
 import cats.effect.std.Console
 import cats.effect.{IO, Ref}
 import munit.CatsEffectSuite
+import triangles.exercise.service.reader.ConsoleReader
 
 import java.nio.charset.Charset
 

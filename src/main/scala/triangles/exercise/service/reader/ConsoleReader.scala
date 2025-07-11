@@ -1,8 +1,9 @@
-package triangles.exercise.service
+package triangles.exercise.service.reader
 
 import cats.effect.IO
 import cats.effect.std.Console
-import triangles.exercise.service.ConsoleReader.UserMessage
+import ConsoleReader.UserMessage
+import triangles.exercise.service.Reader
 
 import scala.util.Try
 
