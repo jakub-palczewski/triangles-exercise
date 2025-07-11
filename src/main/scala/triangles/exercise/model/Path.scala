@@ -2,12 +2,11 @@ package triangles.exercise.model
 
 import cats.Show
 
-case class Path(nodes: Vector[Node])
+case class Path(nodeValues: Vector[Int])
 
 object Path:
   given Show[Path] = Show.show[Path] { path =>
-    val values = path.nodes.map(_.value)
-    val sum    = values.sum
+    val sum = path.nodeValues.sum
 
-    s"${values.mkString(" + ")} = $sum"
+    s"${path.nodeValues.mkString(" + ")} = $sum"
   }
