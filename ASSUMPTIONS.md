@@ -31,6 +31,7 @@ From position `i` in row `n`, you can move to positions `i` or `i+1` in row `n+1
 - Numbers within a row are separated by one or more spaces
 - All values must be integers
 - Empty lines are ignored
+- Triangle must have at least one row
 
 ## Input Validation
 - **Empty input**: Program exits with descriptive error message
