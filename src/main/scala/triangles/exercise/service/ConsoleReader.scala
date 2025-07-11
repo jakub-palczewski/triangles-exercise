@@ -36,7 +36,7 @@ class ConsoleReader(console: Console[IO]) extends Reader[IO]:
     else IO.pure(row)
 
   private def parseLine(line: String): IO[Vector[Int]] =
-    val splitElements = line.split(Separator).toVector
+    val splitElements = line.trim.split("\\s+").toVector
 
     IO.traverse(splitElements) { element =>
       IO.fromTry(Try(element.toInt))
