@@ -8,7 +8,6 @@ import java.nio.charset.Charset
 
 class ConsoleReaderTest extends CatsEffectSuite:
 
-  // Helper to create test console
   def makeTestConsole(inputLines: List[String]): IO[Console[IO]] =
     Ref.of[IO, List[String]](inputLines).map { linesRef =>
       new Console[IO]:
