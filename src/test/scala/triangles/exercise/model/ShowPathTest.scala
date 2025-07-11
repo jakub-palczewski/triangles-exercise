@@ -6,7 +6,7 @@ import munit.FunSuite
 class ShowPathTest extends FunSuite:
   test("Show[Path] should format path correctly") {
     val path = Path(
-      List(
+      Vector(
         Node(Position(0, 0), 1),
         Node(Position(1, 0), 2),
         Node(Position(2, 0), 3)

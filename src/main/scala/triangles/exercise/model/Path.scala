@@ -2,7 +2,7 @@ package triangles.exercise.model
 
 import cats.Show
 
-case class Path(nodes: List[Node])
+case class Path(nodes: Vector[Node])
 
 object Path:
   given Show[Path] = Show.show[Path] { path =>
