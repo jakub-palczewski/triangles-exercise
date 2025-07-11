@@ -2,7 +2,7 @@ package triangles.exercise.service
 
 import cats.effect.IO
 import cats.effect.std.Console
-import triangles.exercise.service.ConsoleReader.{Separator, UserMessage}
+import triangles.exercise.service.ConsoleReader.UserMessage
 
 import scala.util.Try
 
@@ -31,21 +31,28 @@ class ConsoleReader(console: Console[IO]) extends Reader[IO]:
   private def validateRowSize(expectedLength: Int, row: Vector[Int]): IO[Vector[Int]] =
     if row.length != expectedLength then
       IO.raiseError(
-        new IllegalArgumentException(s"Row size mismatch: expected $expectedLength, got ${row.length}")
+        new IllegalArgumentException(s"Row size mismatch: expected [$expectedLength], got [${row.length}].")
       ) // TODO: consider using a custom error type
     else IO.pure(row)
 
   private def parseLine(line: String): IO[Vector[Int]] =
     val splitElements = line.trim.split("\\s+").toVector
 
-    IO.traverse(splitElements) { element =>
-      IO.fromTry(Try(element.toInt))
-        .adaptError { case _: NumberFormatException =>
-          new IllegalArgumentException(
-            s"Invalid input. [$element] is not a valid integer."
+    IO.traverse(splitElements)(parseInt)
+
+  private def parseInt(element: String): IO[Int] =
+    IO
+      .fromTry(Try(element.toInt))
+      .flatMap {
+        case i if i >= 0 => IO.pure(i)
+        case _           =>
+          IO.raiseError(
+            new IllegalArgumentException(s"Negative integers are not allowed: [$element].")
           ) // TODO: consider using a custom error type
-        }
-    }
+      }
+      .adaptError { case _: NumberFormatException =>
+        new IllegalArgumentException(s"Invalid input. [$element] is not a valid integer.")
+      }
 
 object ConsoleReader:
   val Separator: String   = " "

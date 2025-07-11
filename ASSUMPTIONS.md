@@ -36,7 +36,7 @@ From position `i` in row `n`, you can move to positions `i` or `i+1` in row `n+1
 - **Empty input**: Program exits with descriptive error message
 - **Invalid triangle structure**: Program exits with error if row `n` doesn't have exactly `n+1` elements (0-indexed)
 - **Non-numeric values**: Validated during parsing, program exits with error showing the invalid value
-- **Negative numbers**: Allowed as valid input
+- **Value constraints**: Only positive integers (> 0) are allowed. Zero and negative numbers will be rejected with an error message
 
 ## Output Format
 - Output shows the complete path with all node values and sum calculation
