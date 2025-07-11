@@ -73,7 +73,7 @@ class ConsoleReaderTest extends CatsEffectSuite:
       assert(result.isLeft)
       result.left.foreach { error =>
         assert(error.isInstanceOf[IllegalArgumentException])
-        assert(error.getMessage.contains("Row size mismatch: expected 2, got 3"))
+        assert(error.getMessage.contains("Row size mismatch: expected [2], got [3]."))
       }
   }
 
@@ -134,6 +134,25 @@ class ConsoleReaderTest extends CatsEffectSuite:
     yield
       assert(result.isLeft)
       result.left.foreach { error =>
-        assert(error.getMessage.contains("Row size mismatch: expected 3, got 2"))
+        assert(error.getMessage.contains("Row size mismatch: expected [3], got [2]."))
+      }
+  }
+
+  test("ConsoleReader should handle negative integers") {
+    val input = List(
+      "7",
+      "-6 3",
+      ""
+    )
+
+
+    for
+      testConsole <- makeTestConsole(input)
+      reader = new ConsoleReader(testConsole)
+      result <- reader.readInput.attempt
+    yield
+      assert(result.isLeft)
+      result.left.foreach { error =>
+        assert(error.getMessage.contains("Negative integers are not allowed: [-6]"))
       }
   }
