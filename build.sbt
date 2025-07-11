@@ -20,5 +20,4 @@ lazy val root = (project in file("."))
   .settings(
     name := "triangles-exercise",
     libraryDependencies := Dependencies.dependencies,
-    Compile / run / fork := true
   )
