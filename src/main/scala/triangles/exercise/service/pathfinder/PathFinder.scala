@@ -2,7 +2,7 @@ package triangles.exercise.service.pathfinder
 
 import triangles.exercise.model.{Path, Triangle}
 
-trait PathFinder {
+trait PathFinder[F[_]] {
 
-  def findMinPath(triangle: Triangle): Path
+  def findMinPath(triangle: Triangle): F[Path]
 }
