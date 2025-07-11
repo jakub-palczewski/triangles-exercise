@@ -30,7 +30,7 @@ class StreamPathFinder extends PathFinder[IO]:
     val (leftSum, leftValues)   = previousPaths(currentIndex)
     val (rightSum, rightValues) = previousPaths(currentIndex + 1)
 
-    if leftSum <= rightSum then (currentValue + leftSum, currentValue +: leftValues) // Prepend current value
+    if leftSum <= rightSum then (currentValue + leftSum, currentValue +: leftValues)
     else (currentValue + rightSum, currentValue +: rightValues)
 
   private def extractFinalPathFromStream(
