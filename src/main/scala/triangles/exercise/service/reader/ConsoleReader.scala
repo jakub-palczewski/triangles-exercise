@@ -3,7 +3,6 @@ package triangles.exercise.service.reader
 import cats.effect.IO
 import cats.effect.std.Console
 import ConsoleReader.UserMessage
-import triangles.exercise.service.Reader
 
 import scala.util.Try
 
